@@ -31,9 +31,8 @@ public class Oldversion {
             invenP2 = Durareset(invenP2);
             invenP3 = Durareset(invenP3); // 플레이어들의 인벤토리에 보유한 무기들의 내구도가 하루에 1%씩 감소한다.
             inven1=Selreset(inven1,day); // 3일 지났다면 팔렸던 것 리셋
-
-            // --------------------------------------------------------------------------------------------------------------------------------------------------------
             story[0][0]=story[0][1]; //어제 최종 금액이 오늘의 시작금액이 된다.
+
             players1=Dailystart(players1,day); //플레이어의 당일 시작금액 리셋 및 하루 시작 멘트
             for(;;){ //특정플레이어 로그인  -- 특정 플레이어의 턴
                 Usernow=Login(playernames1, Usernow); // 로그인여부 확인

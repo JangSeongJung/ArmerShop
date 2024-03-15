@@ -31,6 +31,18 @@ public class ArmerShopGame{
         names1.ArmerNamesIn();
         names1.ArmarSortIn();
         names1.UsernowIn();
+        // 2차원 어레이리스트 기본정보입력
+        plli1.PlayersListset(); // 플레이이리스트 초기 정보 입력
+        arli1.ArmerListSet(); // 무기 순번 셋팅
+        ArmerNumin(names1, arli1); // 무기 번호 입력
+        arli1.ArmerValueIn(); // 무기 초기 정보 입력
+
+ //-------------------------------------------------------------------------------------------------------------------------------------
+
+        names1.ArNameListOut(0);
+        names1.ArmerSortOut(0);
+        arli1.ListOut(0);
+
         // 어레이리스트 생성 종료
 
         // 메인 진행 시작
@@ -44,9 +56,17 @@ public class ArmerShopGame{
             dayend=0; // 다음 날짜로 선택하는 옵션 리셋
             Durareset(playersall, inven1); // 구입한 무기들 내구도 모두 1씩 다운
             Selreset(day,arli1); // 이미 팔린 무기 3일 지나면 재고 리셋
+            pstory1.ArrayChange(0,0,pstory1.GetValue(0,1)); // 스토리 0 0 지점의 값을 0 1 지점 것으로 변경
 
-        //-----------------------------------------------------------------------------------------------------------------------------------------
-
+            System.out.println(day+"일차 거래를 시작합니다."); // 하루(한 턴의 시작)
+            for(int p=1; p<plli1.HowmanyRow(); p++){ // 모든 플레이어 오늘 시작 금액 리셋
+                if(plli1.GetValue(p,6)!=0){
+                    //players1[p][5]=players1[p][6];
+                }else{
+                    //players1[p][5]=players1[p][4];
+                    //players1[p][6]=players1[p][4];
+                }
+            }
 
 
 
@@ -103,16 +123,7 @@ public class ArmerShopGame{
 
 
 
-        // 테스트용(어레이들 출력)
-        plli1.ListOut(0);
-        pstory1.ListOut(0);
-        arli1.ListOut(0);
-        inven1.ListOut(0,playersall);
-        names1.PlNaListOut(1);
-        names1.UserNowOut(0);
-        names1.ColNameOut(0);
-        names1.ArNameListOut(0);
-        names1.ArmerSortOut(0);
+
 
 
     } // 메인 종료--------------------------------------------------------------------------
@@ -120,6 +131,20 @@ public class ArmerShopGame{
 
 
 
+
+    public static void Dailystart(float[][] players1, int day){
+
+
+    }
+
+    public static void ArmerNumin(UserArmerNames names1, ArmersList arli1){
+        for(int i=0; i<names1.arna.size(); i++){
+            for(int j=0; j<names1.arsort.size(); j++){
+                arli1.ArrayChange(i*10+j+1,1,i+1);
+                arli1.ArrayChange(i*10+j+1,2,j+1);
+            }
+        }
+    }
     public static void Playersnow(int playersall,UserArmerNames names1, PlayersList plli1) {
         System.out.println("현재 플레이어들의 정보입니다."); // 우선 제목
         for(int i=0; i<=playersall-1; i++){
@@ -154,10 +179,6 @@ public class ArmerShopGame{
             }
         }
     }
-
-
-
-
     public static int Howmanyp(PlayersList plli1) { // 추후에 사용할지 말지 결정하쟈
         System.out.println("플레이어가 몇 명입니까?");
         Scanner SC = new Scanner(System.in);
@@ -166,3 +187,14 @@ public class ArmerShopGame{
         return playersall;
     }
 }
+
+// 테스트용(어레이들 출력)
+//plli1.ListOut(0);
+//pstory1.ListOut(0);
+//arli1.ListOut(0);
+//inven1.ListOut(0,playersall);
+//names1.PlNaListOut(1);
+//names1.UserNowOut(0);
+//names1.ColNameOut(0);
+//names1.ArNameListOut(0);
+//names1.ArmerSortOut(0);
