@@ -31,8 +31,8 @@ public class ArmersList {
             }
         }
     }
-    public void ArrayChange(int rowToChange,int columnToChange,int newValue){
-        arli.get(rowToChange).set(columnToChange, newValue);
+    public void ArrayChange(int rowToChange,int columnToChange,float newValue){
+        arli.get(rowToChange).set(columnToChange, (int) newValue);
     }
     public void MenuAddColumn(){
         for(int i=0; i<arli.size(); i++){

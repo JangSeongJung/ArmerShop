@@ -28,14 +28,18 @@ public class Inventory {
                 System.out.println("");
             }
             for(int k=0; k<=playersall-1; k++){
-                for (int j=1; j<=6; j++) {  // 만약 개인 인벤토리의 항목이 늘어난다면 리미트숫자를 늘려주어야 함
-                    int value=inven.get(i).get(k*10+j);  // 사람 명수에 따라 오른쪽으로 열칸씩 증가, 0인덱스는 순번이고 1~10 이 한명 인벤
-                    System.out.print(value+ "      ");
+                int temnum=0;
+                for(int l=0; l<=playersall-1; l++){
+                    temnum=temnum+inven.get(i).get(l*10+6);
                 }
-                System.out.print("     ");
+                if(temnum!=0){
+                    for (int j=1; j<=6; j++) {  // 만약 개인 인벤토리의 항목이 늘어난다면 리미트숫자를 늘려주어야 함
+                        int value=inven.get(i).get(k*10+j);  // 사람 명수에 따라 오른쪽으로 열칸씩 증가, 0인덱스는 순번이고 1~10 이 한명 인벤
+                        System.out.print(value+ "      ");
+                    }
+                    System.out.println();
+                }
             }
-
-            System.out.println();
         }
     }
     public void ArrayChange(int rowToChange,int columnToChange,int newValue){

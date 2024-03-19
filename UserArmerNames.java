@@ -29,10 +29,10 @@ public class UserArmerNames {
         ArrayChange(0,1,"");
         ArrayChange(1,0,"a");
         ArrayChange(1,1,"aa");
-        ArrayChange(2,0,"a");
-        ArrayChange(2,1,"aa");
-        ArrayChange(3,0,"a");
-        ArrayChange(3,1,"aa");
+        ArrayChange(2,0,"b");
+        ArrayChange(2,1,"bb");
+        ArrayChange(3,0,"c");
+        ArrayChange(3,1,"cc");
     }
 
     public void ArrayChange(int rowToChange,int columnToChange,String newValue){
