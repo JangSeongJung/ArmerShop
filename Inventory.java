@@ -45,12 +45,12 @@ public class Inventory {
     public void ArrayChange(int rowToChange,int columnToChange,int newValue){
         inven.get(rowToChange).set(columnToChange, newValue);
     }
-    public void MenuAddColumn(){
+    public void AddColumn(){
         for(int i=0; i<inven.size(); i++){
             inven.get(i).add(0);
         }
     }
-    public void ArrayDelColumn(int delcomnum){
+    public void DelColumn(int delcomnum){
         for(int i=0; i<inven.size(); i++){
             inven.get(i).remove(delcomnum);
         }
@@ -69,6 +69,19 @@ public class Inventory {
         int value;
         value=inven.size();
         return value;
+    }
+    public void AddRow(int story1) { // 2차원 배열 초기 사이즈 설정하고 0으로 입력해 주는 메소드
+        ArrayList<Integer> row = new ArrayList<>();
+        int i= inven.get(0).size();
+        int r=inven.size();
+        for (int j = 0; j < i; j++) {
+            if (j == 0) {
+                row.add(story1);
+            } else {
+                row.add(0);
+            }
+        }
+        inven.add(row);
     }
 }
 

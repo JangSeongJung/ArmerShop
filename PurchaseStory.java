@@ -31,7 +31,7 @@ public class PurchaseStory {
     public void ArrayChange(int rowToChange,int columnToChange,float newValue){
         pstory.get(rowToChange).set(columnToChange, newValue);
     }
-    public void MenuAddColumn(){
+    public void AddColumn(){
         for(int i=0; i<pstory.size(); i++){
             pstory.get(i).add(0.0f);
         }
@@ -55,5 +55,18 @@ public class PurchaseStory {
         int value;
         value=pstory.size();
         return value;
+    }
+    public void AddRow(int story1) { // 2차원 배열 초기 사이즈 설정하고 0으로 입력해 주는 메소드
+        ArrayList<Float> row = new ArrayList<>();
+        int i= pstory.get(0).size();
+        int r=pstory.size();
+        for (int j = 0; j < i; j++) {
+            if (j == 0) {
+                row.add((float)story1);
+            } else {
+                row.add(0.0f);
+            }
+        }
+        pstory.add(row);
     }
 }

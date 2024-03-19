@@ -31,12 +31,25 @@ public class PlayersList{
     public void ArrayChange(int rowToChange,int columnToChange,float newValue){
         plli.get(rowToChange).set(columnToChange, newValue);
     }
-    public void MenuAddColumn(){
+    public void AddColumn(){
         for(int i=0; i<plli.size(); i++){
             plli.get(i).add(0.0f);
         }
     }
-    public void ArrayDelColumn(int delcomnum){
+    public void AddRow(int story1) { // 2차원 배열 초기 사이즈 설정하고 0으로 입력해 주는 메소드
+        ArrayList<Float> row = new ArrayList<>();
+        int i= plli.get(0).size();
+        int r=plli.size();
+        for (int j = 0; j < i; j++) {
+            if (j == 0) {
+                row.add((float)story1);
+            } else {
+                row.add(0.0f);
+            }
+        }
+        plli.add(row);
+    }
+    public void DelColumn(int delcomnum){
         for(int i=0; i<plli.size(); i++){
             plli.get(i).remove(delcomnum);
         }
